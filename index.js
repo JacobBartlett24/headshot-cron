@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 const { Pool } = pg;
 
-console.log(process.env.POSTGRES_URL)
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
 })
@@ -38,6 +37,7 @@ async function fetchMatches(client, done) {
         const result = await client.query('SELECT * FROM html');
         // Perform cleanup or release resources if necessary
         done();
+        console.log(`Success Date ${new Date()}`)
       } catch (error) {
         console.error('Error processing HTML content:', error);
       }
