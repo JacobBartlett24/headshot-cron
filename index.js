@@ -24,7 +24,7 @@ pool.connect(function(err, client, done) {
     pool.end();
 });
 console.log("Done Connecting To Pool...")
-
+console.log(`Success Date ${new Date()}`)
 
 
 async function fetchMatches(client, done) {
@@ -35,6 +35,7 @@ async function fetchMatches(client, done) {
       },
     });
     console.log("Done Fetching From HLTV...")
+    console.log(`Status: ${response.status}`)
 
     let html = await response.text();
     if (response.status === 200) {
@@ -55,4 +56,3 @@ async function fetchMatches(client, done) {
       }
     }
   }
-  console.log(`Success Date ${new Date()}`)
